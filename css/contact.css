@@ -128,3 +128,19 @@ body {
     flex-direction: column;
   }
 }
+
+
+
+#form-status {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.form-success {
+  color: #198754;
+}
+
+.form-error {
+  color: #dc3545;
+}
