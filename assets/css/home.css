@@ -6,9 +6,9 @@
   align-items: center;
   justify-content: center;
 
-  background:
-    linear-gradient(rgba(7,24,36,0.85), rgba(7,24,36,0.92)),
-    url('../images/hero-background.jpg');
+background:
+  radial-gradient(circle at center, rgba(0,194,255,0.12), transparent 60%),
+  linear-gradient(rgba(7,24,36,0.92), rgba(7,24,36,0.96));
 
   background-size: cover;
   background-position: center;
@@ -102,10 +102,7 @@
 /* DESIGN PARTNER */
 
 .partner-section {
-  background:
-    linear-gradient(rgba(7,24,36,0.94),
-    rgba(7,24,36,0.94)),
-    url('../images/grid-pattern.jpg');
+ background-color: #071824;
 
   background-size: cover;
 }
