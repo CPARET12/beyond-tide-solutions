@@ -25,17 +25,30 @@ function updateNavLinks(basePath) {
 async function loadPartials() {
   const basePath = getBasePath();
 
-  const headerResponse = await fetch(`${basePath}partials/header.html`);
-  const headerData = await headerResponse.text();
+  try {
+    const headerResponse = await fetch(`${basePath}partials/header.html`);
+    const footerResponse = await fetch(`${basePath}partials/footer.html`);
 
-  const footerResponse = await fetch(`${basePath}partials/footer.html`);
-  const footerData = await footerResponse.text();
+    if (!headerResponse.ok) {
+      throw new Error("Header failed to load");
+    }
 
-  document.getElementById('header').innerHTML = headerData;
-  document.getElementById('footer').innerHTML = footerData;
+    if (!footerResponse.ok) {
+      throw new Error("Footer failed to load");
+    }
 
-  updateNavLinks(basePath);
-  initializeMobileMenu();
+    const headerData = await headerResponse.text();
+    const footerData = await footerResponse.text();
+
+    document.getElementById("header").innerHTML = headerData;
+    document.getElementById("footer").innerHTML = footerData;
+
+    updateNavLinks(basePath);
+    initializeMobileMenu();
+
+  } catch (error) {
+    console.error("Partial load error:", error);
+  }
 }
 
 function initializeMobileMenu() {
